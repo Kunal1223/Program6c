@@ -1,0 +1,33 @@
+#include<stdio.h>    //adding the header file of stdio
+
+void tower(int ,char ,char,char);    //prototype for function tower
+
+int main()
+{
+
+       int num;      //set interger value num
+       printf("Enter the number of disks\n");
+       scanf("%d", &num);                      //to take input for number of disks
+
+       printf("The seq of moves involved in\n");
+
+       tower(num,'A','C','B');              //calling the function with the num
+       return 0;
+       
+}
+ 
+ void tower(int num,char frompeg,char topeg,char auxpeg)    //the function
+{
+       if(num==1)       //check the condition by num
+   {
+      printf("move disk 1 from peg %c to peg %c\n",frompeg,topeg);
+ 
+      return 0;
+   }
+     tower(num-1,frompeg ,auxpeg,topeg);
+ 
+   printf("move disk %d from peg %cto peg %c\n",num ,frompeg,topeg);
+   
+   tower(num-1,auxpeg,topeg,frompeg);
+}
+
